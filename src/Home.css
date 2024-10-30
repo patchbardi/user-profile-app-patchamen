@@ -1,0 +1,12 @@
+/* src/Home.css */
+.home-container {
+    background-image: url('./images/Maman.jpg'); /* Mettez à jour le chemin de l'image */
+    background-size: cover; /* Couvre tout l'arrière-plan */
+    background-position: center; /* Centre l'image */
+    height: 100vh; /* Hauteur de la fenêtre */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Couleur du texte, changez selon vos besoins */
+}
