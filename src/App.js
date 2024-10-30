@@ -1,8 +1,10 @@
 /// src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from './Home';
 import Contact from './Contact';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const App = () => {
     return (
@@ -17,10 +19,10 @@ const App = () => {
                     </li>
                 </ul>
             </nav>
-            <Switch>
+            <Routes>
                 <Route path="/" exact component={Home} />
                 <Route path="/contact" component={Contact} />
-            </Switch>
+            </Routes>
         </Router>
     );
 };
