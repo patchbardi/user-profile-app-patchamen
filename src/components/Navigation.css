@@ -1,0 +1,8 @@
+/* Navigation.css */
+.custom-nav-link {
+    color: black !important; /* Force la couleur noire */
+}
+
+.custom-nav-link:hover {
+    color: darkgray; /* Change la couleur au survol */
+}

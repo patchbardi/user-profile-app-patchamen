@@ -13,15 +13,29 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
+/* Navigation.css */
+.custom-nav-link {
+    color: black !important; /* Force la couleur noire */
+}
+
+.custom-nav-link:hover {
+    color: darkgray; /* Optionnel : change la couleur au survol */
+}
+
+
+body  {
+  background-color: #342c28;
+  background-image: url('../public/images/Maman.jpg'); /* Chemin vers votre image */
+  background-size: cover; /* Assure que l'image couvre tout l'élément */
+  background-position: center; /* Centre l'image */
+  background-repeat: no-repeat; /* Empêche la répétition de l'image */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .App-link {

@@ -1,23 +1,29 @@
-// src/App.js
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import Home from './Home';
-import Contact from './Contact';
-import './index.css';
 import './App.css';
 
+import { Routes, Route } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 
+import Home from './components/Home';
+import Contact from './components/Contact';
+import Navigation from './components/Navigation';
+import Login from './components/Login';
 
-const App = () => {
-    return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/contact" element={<Contact />} />
-            </Routes>
-        </Router>
-    );
-};
+function App() {
+  return (
+    <div className="App">
+<div className="App-header"></div>
+      <Navigation />
+
+      <Container className="mt-4">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </Container>
+
+    </div>
+  );
+}
 
 export default App;
-
