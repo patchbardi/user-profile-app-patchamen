@@ -9,7 +9,11 @@ import Home from './components/Home';
 import Contact from './components/Contact';
 import Navigation from './components/Navigation';
 import Login from './components/Login';
+import UserProfile from './components/UserProfile';
 import FakeToggleLoginButton from './components/FakeToggleLoginButton';
+
+
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -49,6 +53,7 @@ function App() {
           <Route path="/" element={<Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/profile" element={<UserProfile />} />
         </Routes>
       </Container>
 
