@@ -1,5 +1,9 @@
 // src/components/Login.js
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+
+
 
 function Login({isLoggedIn, setIsLoggedIn}) {
     const [message, setMessage] = useState('');
@@ -9,7 +13,7 @@ function Login({isLoggedIn, setIsLoggedIn}) {
         const username = e.target.elements.username.value;
         const password = e.target.elements.password.value;
         try {
-          const response = await fetch(`http://server-comhard/api/login`, {
+          const response = await fetch(`http://barbara.mshome.net:3001/api/login`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
