@@ -4,6 +4,7 @@ function UserProfile({ userId }) {
     const [formData, setFormData] = useState({
         name: '',
         bio: '',
+        birthdate: '',
     });
     const [message, setMessage] = useState('');
 
@@ -14,9 +15,10 @@ function UserProfile({ userId }) {
 
     useEffect(() => {
         const token = localStorage.getItem('token');
+
         const fetchProfile = async () => {
             try {
-                const response = await fetch(`http://server-comhard:3001/api/profile`, {
+                const response = await fetch(`${process.env.REACT_APP_API_SERVER_URL}/api/profile`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -28,6 +30,7 @@ function UserProfile({ userId }) {
                     setFormData({
                         name: data.name || '',
                         bio: data.bio || '',
+                        birthdate: data.birthdate || '',
                     });
                 } else {
                     setMessage(data.error || 'Fehler beim Laden des Profils');
@@ -43,8 +46,26 @@ function UserProfile({ userId }) {
 
     const handleSaveProfile = async (e) => {
         e.preventDefault();
-        console.log('handleSaveProfile');
-    };
+        const token = localStorage.getItem('token');
+        try {
+            const response = await fetch(`${process.env.REACT_APP_API_SERVER_URL}/api/profile`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+            setMessage(response.ok ? 'Profil erfolgreich aktualisiert' : data.error);
+        } catch (error) {
+        console.log(error);
+
+            setMessage('Fehler beim Speichern des Profils');
+        }
+  };
+
 
     return (
         <div>
@@ -74,6 +95,18 @@ function UserProfile({ userId }) {
               rows="3"
             />
           </label>
+          <div>
+          <label>
+            Geburtsdatum:
+            <input
+              type="date"
+              name="birthdate"
+              value={formData.birthdate ? new Date(formData.birthdate).toISOString().split('T')[0] : ''}
+              onChange={handleInputChange}
+              rows="3"
+            />
+          </label>
+          </div>
         </div>
 
         <button type="submit">Profil speichern</button>
