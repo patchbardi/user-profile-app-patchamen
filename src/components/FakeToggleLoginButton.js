@@ -1,5 +1,13 @@
 import { Button } from 'react-bootstrap';
 
+/**
+* Simple React-Component to toggle login state.
+* @component
+* @param {Object} props - properties of the compoment.
+* @param {boolean} props.isLoggedIn - State of the login.
+* @param {function} props.onToggle - Function to toggle the login.
+* @returns {JSX.Element} Button to toggle login.
+*/
 // ToggleButton-Komponente für den Login-Status
 function FakeToggleLoginButton({ isLoggedIn, onToggle }) {
     return (
@@ -8,5 +16,6 @@ function FakeToggleLoginButton({ isLoggedIn, onToggle }) {
       </Button>
     );
 }
+
 
 export default FakeToggleLoginButton;
